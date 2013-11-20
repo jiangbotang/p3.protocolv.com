@@ -15,32 +15,37 @@
 
 		<!-- All the game controllers go here -->
 		<div id='controllers'>
+
+			<button id='startGame'>Start Game</button>
+			<button id='stopGame'>Stop Game</button>
 		</div>
 
 
-		<!-- The gaming area -->
-		<div id='gamingArea'>
-			<!-- Make 10 divs for words to enter-->
-			<?php for($i = 0; $i <10; $i++): ?>
-			<div class='target' id=<?="target".$i ?>><?="target".$i ?></div>
-			<?php endfor;?>
-		</div>
+		<div id='gameDisplay'>
+			<!-- The gaming area -->
+			<div id='gamingArea'>
+				<!-- Make 10 divs for words to enter-->
+				<?php for($i = 0; $i <10; $i++): ?>
+				<div class='target' id=<?="target".$i ?>></div>
+				<?php endfor;?>
+			</div>
 
-		<div id='scoreArea'>
-			<h3>Your Score:</h3>
-			<h2 id='score'>0</h2>
-		</div>
+			<div id='scoreArea'>
+				<h3>Your Score:</h3>
+				<h2 id='score'>0</h2>
+			</div>
 
-		<!-- User input area-->
-		<div id='UserArea'>
-			<p>Type word in the box.<br>
-				Hit "ENTER" to shoot a matching word.
-			</p>
-			<input type='text' id='userInput'>
+			<!-- User input area-->
+			<div id='UserArea'>
+				<p>Type word in the box.<br>
+					Hit "ENTER" to shoot a matching word.
+				</p>
+				<input type='text' id='userInput'>
+			</div>
+			<br>
+			
+			<div id='message'>You shot a word!!!</div>
 		</div>
-		<br>
-		
-		<div id='message'>You shot a word!!!</div>
 
 
 		<script src="js/shootingWords.js"></script>

@@ -13,51 +13,79 @@ var counter = 0;
 
 
 
+/*
+ * Start the game
+ */
+$('#startGame').click(function(){
+	$('#userInput').focus();
+	//prevent user from starting the game again before stopGame is clicked
+	$('#startGame').attr('disabled', 'disabled');
+
+	/*
+	 * a. select a random word for each target div
+	 * b. start animation
+	 */
+	$('.target').each(function() {
+
+		// send a random word to game area
+		$(this).html(giveAWord());
+
+		startAnimation(this);
+	});
+
+
+	/*
+	 * This triggers when user hit "ENTER" key in the input box.
+	 */
+	$('#userInput').keyup(function(e){
+		var code = e.which;
+		
+		// User hit "ENTER" in the input box
+		if(code == 13){
+			e.preventDefault();
+		}
+		if(code == 32 || code == 13 || code == 188 || code == 186) {
+			//get the user input
+			var userWord = $(this).val();
+
+			//compare the input to every word in gaming area
+			$('.target').each(function() {
+				var targetWord = $(this).text();
+				// user input match the current element
+				if (targetWord == userWord) {
+					//update score
+					score += $(this).html().length
+					$('#score').html(score);
+
+					//clear user input
+					$('#userInput').val("");
+
+					//clear matched word from gaming area
+					$(this).empty();
+
+					//tell user word match succeed
+					$('#message').fadeIn('fast').fadeOut(500);
+				}
+			});
+		}
+	}); //end of .keyup()
+}); // enf of .click()
 
 /*
- * Start up the game by
- * a. select a random word for each target div
- * b. start animation
+ * Stop the game
  */
-$('.target').each(function() {
-
-	// send a random word to game area
-	$(this).html(giveAWord());
-
-	startAnimation(this);
+$('#stopGame').click(function(){
+	$('.target').each(function(){
+		// stop animation
+		$(this).stop();
+		
+		$(this).html("");
+		$(this).css('left', '0px');
+	});
+	//make start game button response to click again
+	$('#startGame').removeAttr('disabled');
 });
 
-
-$('#userInput').keyup(function(e){
-	var code = e.which;
-	
-	// User hit "ENTER" in the input box
-	if(code == 13){
-		e.preventDefault();
-	}
-	if(code == 32 || code == 13 || code == 188 || code == 186) {
-		//get the user input
-		var userWord = $(this).val();
-
-		//compare the input to every word in gaming area
-		$('.target').each(function() {
-			var targetWord = $(this).text();
-			// user input match the current element
-			if (targetWord == userWord) {
-				//update score
-				score += $(this).html().length
-				$('#score').html(score);
-
-				$('#userInput').val("");
-
-				$(this).empty();
-
-				//tell user word match succeed
-				$('#message').fadeIn('fast').fadeOut(500);
-			}
-		});
-	}
-});
 
 function restart(selector) {
 	var randWord = giveAWord();
