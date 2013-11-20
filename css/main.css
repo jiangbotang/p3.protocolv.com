@@ -1,0 +1,61 @@
+#gamingArea {
+	border: 1px solid black;
+	width: 500px;
+	height: 300px;
+	position: relative;
+}
+
+.target {
+	height: 25px;
+	position: absolute;
+}
+
+#target0 {
+
+}
+
+#target1 {
+	top: 25px;
+}
+
+#target2 {
+	top: 50px;
+}
+
+#target3 {
+	top: 75px;
+}
+
+#target4 {
+	top: 100px;
+}
+
+#target5 {
+	top: 125px;
+}
+
+#target6 {
+	top: 150px;
+}
+
+#target7 {
+	top: 175px;
+}
+
+#target8 {
+	top: 200px;
+}
+
+#target9 {
+	top: 225px;
+}
+
+#message {
+	display: none;
+	color: red;
+	font-weight: bold;
+}
+
+.target {
+	border: 1px dotted silver;
+}
