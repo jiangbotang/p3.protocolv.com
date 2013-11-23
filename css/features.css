@@ -1,0 +1,41 @@
+/*-------------------------------------
+ * Background color picker
+ *-------------------------------------
+ */
+.colors {
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin-right: 5px;
+
+}
+
+/* use rgba for js to control opacity */
+#color1 {
+	background-color: rgba(208, 97, 167, 0.7);
+}
+
+#color2 {
+	background-color: rgba(222, 119, 55, 0.7);
+}
+
+#color3 {
+	background-color: rgba(235, 230, 84, 0.7);
+}
+
+#color4 {
+	background-color: rgba(57, 189, 25, 0.7);
+}
+
+#color5 {
+	background-color: rgba(105, 138, 209, 0.7);
+}
+
+#color6 {
+	background-color: rgba(43, 165, 173, 0.7);
+}
+
+#color7 {
+	background-color: rgba(171, 97, 298, 0.7);
+}

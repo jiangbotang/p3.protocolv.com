@@ -6,17 +6,53 @@
  */
 
 
-var speedModifier = 1;
+var speedModifier = 2;
 var words = ['hello', 'volvo', 'cookie', 'world', 'king', 'quee', 'game', 'fun', 'enjoy'];
 var score = 0;
 var counter = 0;
 
+/*
+ * Set up the game using user provided parameters
+ */
 
+// set up background color
+$('.colors').click(function() {
+	var selectedColor = $(this).css('background-color');
+	$('#gamingArea').css('background-color', selectedColor);
+});
 
+// set up background opacity
+$('#opacity').change(function(){
+	var selectedOpacity = $(this).val();
+
+	// change bakcground color opacity
+	var oldBGColor = $('#gamingArea').css('background-color');
+	var lastComma = oldBGColor.lastIndexOf(',');
+	var newBGColor = oldBGColor.slice(0, lastComma+1) + selectedOpacity + ')';
+
+	$('#gamingArea').css('background-color', newBGColor);
+})
+
+// set up target word font
+$("input[name='font']").click(function() {
+	var selectedFont = $(this).val();
+	$('.target').css('font-family', selectedFont);
+});
+
+//set up game speed
+$('#level').change(function() {
+	speedModifier = $(this).val();
+	console.log(speedModifier);
+});
+	
 /*
  * Start the game
  */
 $('#startGame').click(function(){
+	// reset the score
+	score = 0;
+	$('#score').html(score);
+
 	$('#userInput').focus();
 	//prevent user from starting the game again before stopGame is clicked
 	$('#startGame').attr('disabled', 'disabled');
@@ -105,16 +141,23 @@ function giveAWord() {
 
 }
 
+/*
+ * Start the animation of a target word
+ * selector: handler to a target word
+ */
 function startAnimation(selector) {
-	$(selector).animate({left: '500px'}, travelTime(), function() {
+	$(selector).animate({left: '550px'}, travelTime(), function() {
 	// when the fuction in animate when animate finishes
 	// It is likly he current element has been removed
 	// Use $(selector).length > 0 to determine its existence
 		if ($(selector).length > 0) {
 
+			//update and dipslay score
 			score = score - $(selector).html().length;
-			$(selector).empty();
 			$('#score').html(score);
+
+			// fadeout then delete the target word
+			$(selector).empty();
 
 			// restart the game for the element
 			restart(selector);
@@ -123,9 +166,8 @@ function startAnimation(selector) {
 }
 
 function travelTime() {
-	var time = Math.round(5000 + Math.random() * 10000 / speedModifier);
+	var time = Math.round((10000 + Math.random() * 20000) / speedModifier);
 	return time;
 }
-
 
 
