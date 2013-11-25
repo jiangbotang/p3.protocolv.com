@@ -33,13 +33,16 @@ $('#opacity').change(function(){
 	$('#gamingArea').css('background-color', newBGColor);
 })
 
-// set up target word font
+// set up target word default font
+$('.target').css('font-family', 'Georgia');
+
+// change target font upon user request
 $("input[name='font']").click(function() {
 	var selectedFont = $(this).val();
 	$('.target').css('font-family', selectedFont);
 });
 
-//set up game speed
+// set up game speed
 $('#level').change(function() {
 	speedModifier = $(this).val();
 	console.log(speedModifier);
@@ -99,7 +102,8 @@ $('#startGame').click(function(){
 					//clear matched word from gaming area
 					$(this).empty();
 
-					//tell user word match succeed
+					//tell user hit or miss
+					$('#message').html('You SHOT a word!!!').css('color', '#0B751B');
 					$('#message').fadeIn('fast').fadeOut(500);
 				}
 			});
@@ -134,11 +138,7 @@ function restart(selector) {
 function giveAWord() {
 	// select a random word
 	var index = Math.round(Math.random() * (words.length - 1));
-
-	console.log(index + ": " + words[index]);
-
 	return words[index];
-
 }
 
 /*
@@ -147,21 +147,17 @@ function giveAWord() {
  */
 function startAnimation(selector) {
 	$(selector).animate({left: '550px'}, travelTime(), function() {
-	// when the fuction in animate when animate finishes
-	// It is likly he current element has been removed
-	// Use $(selector).length > 0 to determine its existence
-		if ($(selector).length > 0) {
+		// following code executed when animation finishes
 
-			//update and dipslay score
-			score = score - $(selector).html().length;
-			$('#score').html(score);
+		//update and dipslay score
+		score = score - $(selector).html().length;
+		$('#score').html(score);
 
-			// fadeout then delete the target word
-			$(selector).empty();
+		// delete the target word
+		$(selector).empty();
 
-			// restart the game for the element
-			restart(selector);
-		}
+		// restart the game for the element
+		restart(selector);
 	});
 }
 

@@ -22,10 +22,11 @@ body {
 	height: 300px;
 	position: relative;
 	padding-right: 50px;
-	background-image: url('/resource/img/bg.png');
-	background-repeat: repeat-y;
-	background-position: right;
+}
 
+#blocker {
+	position: absolute;
+	left: 546px;
 }
 
 .target {
@@ -74,8 +75,6 @@ body {
 }
 
 #message {
-	display: none;
-	color: red;
 	font-weight: bold;
 }
 

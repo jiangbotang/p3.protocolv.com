@@ -39,7 +39,7 @@
 			<div id='fontSelector'>
 				<h3>Pick a font</h3>
 				<div>
-					<input type='radio' name='font' value='Georgia' id='georgia'>
+					<input type='radio' name='font' value='Georgia' id='georgia' checked='true'>
 					<label for='georgia' style="font-family:Georgia;">Georgia</label><br>
 
 					<input type='radio' name='font' value='Verdana' id='verdana'>
@@ -74,6 +74,11 @@
 				<?php for($i = 0; $i <10; $i++): ?>
 				<div class='target' id=<?="target".$i ?>></div>
 				<?php endfor;?>
+
+				<!-- Right side end blocker-->
+				<div id='blocker'>
+					<img src='/resource/img/bg2.png' alt='game area end blocker'>
+				</div>
 			</div>
 
 			<div id='scoreArea'>
@@ -89,7 +94,7 @@
 				<input type='text' id='userInput'>
 			</div>
 			
-			<div id='message'>You shot a word!!!</div>
+			<div id='message'></div>
 		</div>
 
 		<script src="js/shootingWords.js"></script>
