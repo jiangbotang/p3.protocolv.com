@@ -7,13 +7,19 @@
 
 
 var speedModifier = 2;
-var words = ['hello', 'volvo', 'cookie', 'world', 'king', 'quee', 'game', 'fun', 'enjoy'];
+var words = [];
 var score = 0;
 var counter = 0;
 
 /*
- * Set up the game using user provided parameters
+ * Set up the game
  */
+
+// read in words from a from a file to an array
+$.get("/resource/words5k.txt", function(data) {
+	words = data.split("\n");
+});
+
 
 // set up background color
 $('.colors').click(function() {
@@ -68,7 +74,7 @@ $('#startGame').click(function(){
 
 		// send a random word to game area
 		$(this).html(giveAWord());
-
+		// start amination
 		startAnimation(this);
 	});
 
@@ -89,7 +95,9 @@ $('#startGame').click(function(){
 
 			//compare the input to every word in gaming area
 			$('.target').each(function() {
-				var targetWord = $(this).text();
+				// not sure why .html() return (word + '\n') instead of (word), so I have to use replace
+				// the returned type is undefined instead of string. It wierd as a random word went in as String
+				var targetWord = $(this).html().replace('\n','');
 				// user input match the current element
 				if (targetWord == userWord) {
 					//update score
@@ -162,7 +170,7 @@ function startAnimation(selector) {
 }
 
 function travelTime() {
-	var time = Math.round((10000 + Math.random() * 20000) / speedModifier);
+	var time = Math.round((25000 + Math.random() * 50000) / speedModifier);
 	return time;
 }
 

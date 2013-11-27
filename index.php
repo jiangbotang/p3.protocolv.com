@@ -72,7 +72,7 @@
 			<div id='gamingArea'>
 				<!-- Make 10 divs for words to enter-->
 				<?php for($i = 0; $i <10; $i++): ?>
-				<div class='target' id=<?="target".$i ?>></div>
+				<div class='target' id=<?="target".$i?>></div>
 				<?php endfor;?>
 
 				<!-- Right side end blocker-->
