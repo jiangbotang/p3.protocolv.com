@@ -1,19 +1,24 @@
 body {
 	margin-left: auto;
 	margin-right: auto;
-	width: 1200px;
-	border: 1px dotted red;
+	width: 1050px;
+	font-family: Georgia;
+}
+
+em {
+	color: #39D0DB;
 }
 
 #controllers {
 	width: 300px;
 	float: left;
-	border: 1px dotted green;
+	border-right: 2px dotted green;
 	margin-left: 25px;
 }
 
 #gameDisplay {
 	margin-left: 350px;
+	margin-bottom: 50px;
 }
 
 #gamingArea {
@@ -78,6 +83,14 @@ body {
 	font-weight: bold;
 }
 
-.target {
-	border: 1px dotted silver;
+#footer {
+	position: fixed;
+	bottom: 0px;
+	height: 22px;
+	width: 1050px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #ADD8E6;
+	font-size: 0.8em;
+	text-align: center;
 }

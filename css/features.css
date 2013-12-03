@@ -2,6 +2,7 @@
  * Background color picker
  *-------------------------------------
  */
+
 .colors {
 	cursor: pointer;
 	width: 30px;
@@ -39,3 +40,43 @@
 #color7 {
 	background-color: rgba(171, 97, 298, 0.7);
 }
+
+/*-------------------------------------
+ * opacity picker
+ *-------------------------------------
+ */
+
+#opacitySelector {
+	padding-top: 40px;
+}
+
+
+/*-------------------------------------
+ * font picker
+ *-------------------------------------
+ */
+ #georgia {
+ 	font-family: Georgia;
+ }
+
+#verdana {
+	font-family: Verdana;
+}
+
+#lucida {
+	font-family: "Lucida Console";
+}
+
+ #comic {
+ 	font-family: "Comic Sans MS";
+ }
+
+/*-------------------------------------
+ * start & stop game controllers
+ *-------------------------------------
+ */
+
+ #startNstop {
+ 	margin-top: 30px;
+ 	margin-left: 50px;
+ }

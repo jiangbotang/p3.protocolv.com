@@ -1,10 +1,3 @@
-/*
- * function implementations
- * 1. produce words to populate the 10 word holders
- * 2. animate the word towards right board, remove the word when hit the board
- * 3. remove word if it matches user input
- */
-
 
 var speedModifier = 2;
 var words = [];
@@ -12,7 +5,7 @@ var score = 0;
 var counter = 0;
 
 /*
- * Set up the game
+ * Set up the game when the page is loaded
  */
 
 // read in words from a from a file to an array
@@ -21,7 +14,10 @@ $.get("/resource/words5k.txt", function(data) {
 });
 
 
-// set up background color
+// set up default background color
+$('#gamingArea').css('background-color', 'rgba(43, 165, 173, 0.7)');
+
+// set up background color upon user request
 $('.colors').click(function() {
 	var selectedColor = $(this).css('background-color');
 	$('#gamingArea').css('background-color', selectedColor);
@@ -135,6 +131,9 @@ $('#stopGame').click(function(){
 });
 
 
+/*
+ * Restart / loop the animation when word hit the boundary on the right
+ */
 function restart(selector) {
 	var randWord = giveAWord();
 
@@ -143,6 +142,9 @@ function restart(selector) {
 	startAnimation(selector);
 }
 
+/*
+ * Return a random word from the array of words
+ */
 function giveAWord() {
 	// select a random word
 	var index = Math.round(Math.random() * (words.length - 1));
