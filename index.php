@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<title>Shooting Words</title>
 
 		<link rel="stylesheet" href="css/main.css" type="text/css">
@@ -41,17 +42,17 @@
 			<div id='fontSelector'>
 				<h3>Pick a font</h3>
 				<div>
-					<input type='radio' name='font' value='Georgia' checked='true'>
-					<label for='georgia' id='georgia'>Georgia</label><br>
+					<input type='radio' name='font' value='Georgia' checked>
+					<label id='georgia'>Georgia</label><br>
 
 					<input type='radio' name='font' value='Verdana'>
-					<label for='verdana' id='verdana'>Verdana</label><br>
+					<label id='verdana'>Verdana</label><br>
 
 					<input type='radio' name='font' value="Lucida Console">
-					<label for='lucida' id='lucida'>Lucida Console</label><br>
+					<label id='lucida'>Lucida Console</label><br>
 
 					<input type='radio' name='font' value="Comic Sans MS">
-					<label for='comic' id='comic'>Comic Sans MS</label>
+					<label id='comic'>Comic Sans MS</label>
 				</div>
 			</div>
 
