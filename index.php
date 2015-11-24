@@ -80,7 +80,7 @@
 
 				<!-- Right side end blocker-->
 				<div id='blocker'>
-					<img src='/resource/img/bg2.png' alt='game area end blocker'>
+					<img src='resource/img/bg2.png' alt='game area end blocker'>
 				</div>
 			</div>
 
