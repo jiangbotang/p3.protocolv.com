@@ -9,7 +9,7 @@ var counter = 0;
  */
 
 // read in words from a from a file to an array
-$.get("/resource/words5k.txt", function(data) {
+$.get("resource/words5k.txt", function(data) {
 	words = data.split("\n");
 });
 
